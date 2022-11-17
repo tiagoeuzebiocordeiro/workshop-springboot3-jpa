@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.educandoweb.course.entities.User;
 
-@RestController /*Recurso WEB que é implementado por um controlador REST*/
+@RestController /*Essa anotação serve para dizer que essa classe é um Recurso WEB que é implementado por um controlador REST*/
 @RequestMapping(value = "/users") /*Isso dá um nome pro recurso, de valor(caminho), recurso para entidade users, então vai chamar users*/
 public class UserResource {			/*Essa classe disponibiliza um recurso web disponível para a entidade User*/
 
@@ -15,10 +15,13 @@ public class UserResource {			/*Essa classe disponibiliza um recurso web dispon�
 	/*Para testar se está funcionando, vamos criar um método ResponseEntity que é um tipo
 	 * específico do spring para retornar respostas de requisições Web*/
 	
+	/*GetMapping, vc vai dizer como vai funcioanr seu metodo de rota/caminho GET*/
+	
 	@GetMapping
-	public ResponseEntity<User> findAll() { /*Método que responde as requisições WEB GET*/
+	public ResponseEntity<User> findAll() { /*Método que responde as requisições WEB GET (endpoint para acessar users)*/
 		User user = new User(1L, "Maria", "maria@gmail.com", "98821221", "12345");
-		return ResponseEntity.ok().body(user); // Retorna uma requisição OK de corpo body do user que acabou de ser instanciado
+		return ResponseEntity.ok().body(user); /*Retorna uma requisição OK (resposta com sucesso no http de corpo body do user 
+		que acabou de ser instanciado*/ 
 	}
 	
 }
