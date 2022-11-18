@@ -1,12 +1,15 @@
 package com.educandoweb.course.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity; // Pacote faz minha classe depender da ESPECIFICAÇÃO.
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 /*Anotação Entity = isso vai ser uma entidade do meu dominio no Banco de Dados*/
 @Entity 
@@ -22,11 +25,13 @@ public class User implements Serializable {				/*Objeto seja transformado em cad
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /*Fica auto incremetando meu ID*/
 	private Long id;
 	
-	
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
+	
+	@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 	
 	public User() {		/*Construtor vazio por usar Framework*/
 	}
@@ -80,9 +85,13 @@ public class User implements Serializable {				/*Objeto seja transformado em cad
 		this.password = password;
 	}
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
 	
 	/*Como vou comparar meus objetos? Eu escolhi através do ID, então gerar HashCode e Equals com o ID.*/
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
