@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,11 +23,13 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT") // Formatando minha Data JSON
 	private Instant moment;
 	
 	@ManyToOne /*MAPEAMENTO JPA*/
 	@JoinColumn(name = "client_id") /*NOME DA CHAVE ESTRANGEIRA*/
-	private User client;
+	private User client; // Assosiação de objetos
 	
 	public Order() {
 	}
