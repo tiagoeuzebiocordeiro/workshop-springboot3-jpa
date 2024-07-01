@@ -25,7 +25,8 @@ public class Product implements Serializable {
     Why Set ? Because I need to prevent a product from having a repeated category
     HashSet -> class to instantiate
     */
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product() {
