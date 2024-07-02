@@ -67,7 +67,7 @@ public class TestConfig implements CommandLineRunner {
         Payment pay1 = new Payment(null,Instant.parse("2019-06-20T21:53:07Z"), o1);
 
         /*PAY ATTENTION
-        * TO SAVE A DEPENDENT OBJECT (BTW OneToOne association) you don't need to call the "PaymentRepository"
+        * TO SAVE A DEPENDENT OBJECT (BTW OneToOne association) you don't need to call the "PaymentRepository" ("parent repository")
         * just call the set access method (aka setPayment)
         * */
 
