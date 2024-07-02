@@ -19,6 +19,10 @@ This project is a web service that simulates Orders, Order Items, and Products. 
 - **GET /orders**: Retrieve a list of all orders.
 - **GET /orders/{id}**: Retrieve details of a specific order by ID.
 
+### Categories (of the Products)
+- **GET /categories**: Retrieve a list of all categories.
+- **GET /categories/{id}**: Retrieve details of a specific category by ID.
+
 ### Product
 
 - **GET /products**: Retrieve a list of all products.
