@@ -1,6 +1,7 @@
 package com.tiagocordeiro.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tiagocordeiro.course.entities.pk.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

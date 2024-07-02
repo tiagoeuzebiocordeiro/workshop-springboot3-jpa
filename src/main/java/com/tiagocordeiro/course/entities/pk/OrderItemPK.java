@@ -1,5 +1,7 @@
-package com.tiagocordeiro.course.entities;
+package com.tiagocordeiro.course.entities.pk;
 
+import com.tiagocordeiro.course.entities.Order;
+import com.tiagocordeiro.course.entities.Product;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
